@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+        font-family: Arial, sans-serif;
+      }
+      
+      .or{
+        background-color: rgb(72, 76, 78);
+        color: white;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+        /* MAIN IMAGE */
+        .main {
+          background-image: url(https://cdn.britannica.com/88/275788-050-32DAB4EB/Kylian-Mbappe-celebrates-goal-for-PSG-against-Real-Sociedad-March-2024.jpg);
+          background-position: top;
+          background-size: cover;
+          height: 100vh;
+        }
+
+        /* HEADER */
+        header {
+          padding: 10px 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          position: fixed;
+          width: 100%;
+          background: rgba(0, 0, 0, 0.5);
+          z-index: 1000;
+          flex-wrap: wrap;
+        }
+        header img {
+          width: 80px;
+        }
+        header a {
+          color: white;
+          font-size: 20px;
+          text-decoration: none;
+          margin: 0 10px;
+        }
+        header a:hover {
+          text-decoration: underline;
+        }
+
+        /* CAREER SECTION */
+        .career {
+          display: flex;
+          /* flex-wrap: wrap; */
+          padding: 20px;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          gap: 20px;
+        }
+        .career img {
+          width: 100%;
+          max-width: 250px;
+          border-radius: 10px;
+        }
+        .career p {
+          width: 100%;
+          max-width: 500px;
+          text-align: justify;
+        }
+
+        /* NEWS */
+        .news {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 20px;
+          padding: 30px;
+        }
+        .news div {
+          width: 100%;
+          max-width: 300px;
+          text-align: center;
+        }
+        .news img {
+          width: 100%;
+          border-radius: 10px;
+        }
+        .news div:hover {
+          transform: scale(1.03);
+        }
+
+        /* HEADINGS */
+        h1 {
+          text-align: center;
+          margin: 20px 0;
+          border: 1px solid gray;
+          border-radius: 10px;
+          padding: 10px;
+        }
+
+        /* RECORDS */
+        .records {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 40px;
+          padding: 20px;
+          text-shadow: 2px 2px 4px gray;
+        }
+        .records div {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 20%;
+        }
+        .records img {
+          width: 100px;
+          height: 150px;
+        }
+        .records div:hover {
+          transform: scale(1.05);
+        }
+        .rc {
+          background: url(https://img.freepik.com/free-vector/flat-black-white-halftone-background_23-2150550147.jpg?w=740) center/cover;
+        }
+
+        /* REAL MADRID (GOALS SECTION) */
+        .REALMADRIT {
+          text-align: center;
+          padding: 30px;
+        }
+        .REALMADRIT img {
+          width: 100%;
+          max-width: 300px;
+          height: auto;
+          border-radius: 10px;
+          margin: 10px;
+          height: 400px;
+        }
+        .REALMADRIT p {
+          max-width: 700px;
+          margin: 20px auto;
+          text-align: justify;
+        }
+
+        /* ANIMATION */
+        .lift {
+          display: flex;
+          justify-content: center;
+          margin: 40px 0;
+          overflow: hidden;
+        }
+        .orbit1, .orbit2, .orbit3 {
+          border-radius: 50%;
+          border: 2px solid black;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+        }
+        .orbit1 { animation: rotate1 10s linear infinite; width: 400px; height: 400px; }
+        .orbit2 { animation: rotate1 15s linear infinite; width: 300px; height: 300px; }
+        .orbit3 { animation: rotate1 7s linear infinite; width: 200px; height: 200px; }
+
+        .sun {
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          background: yellow url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6wlMbzN0FXw5HFBYBLBkrcZtNheYiQd3l5A&s) center/cover;
+          box-shadow: 0 0 50px 20px orange;
+        }
+
+        .planet, .planet1, .planet2 {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          position: absolute;
+          background-size: cover;
+          background-position: center;
+        }
+
+        .planet { background-image: url(https://upload.wikimedia.org/wikipedia/commons/1/1e/Picture_with_Mbapp%C3%A9_%28cropped%29.jpg); top: -20px; }
+        .planet1 { background-image: url(https://img.a.transfermarkt.technology/portrait/big/342229-1682683695.jpg?lm=1); top: 30px; }
+        .planet2 { background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJJrl3Hyok2DUnwHIBYAuCRzquAdJrPGY4ketMS9YkBU9WKPnIcVM6RUMYhUohkFAA1n8&usqp=CAU); left: 230px; }
+
+        @keyframes rotate1 {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+
+        /* ===== RESPONSIVE BREAKPOINTS ===== */
+
+        /* TABLETS */
+        @media (max-width: 992px) {
+          header a { font-size: 0.9rem; }
+          .career { flex-wrap: wrap;flex-direction: column; }
+          .records div { width: 45%; }
+        }
+
+        /* MOBILE */
+        @media (max-width: 600px) {
+          header {
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+          }
+          header img { width: 60px; }
+          header a { font-size: 0.8rem; }
+          .career, .news, .records { flex-wrap: wrap; flex-direction: column; }
+          .records div { width: 80%; }
+          .orbit1 { width: 250px; height: 250px; }
+          .orbit2 { width: 180px; height: 180px; }
+          .orbit3 { width: 120px; height: 120px; }
+          .sun { width: 60px; height: 60px; }
+        }
+        @media (min-width: 1440px) {
+          header a { font-size: 1rem; }
+          .career div{
+            display: flex;
+            flex-direction: column;
+          }
+          .records div { width: 45%; }
+        }
+        .or{padding: 30px;}
+        .or a{
+          text-decoration: none;
+          color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <img src="https://kylianmbappe.com/wp-content/uploads/2019/05/logo-KM-1.png" alt="" >
+        </div>
+        <div>
+            <a href="#home">HOME</a>
+            <a href="#career">CAREER</a>
+            <a href="#news">NEWS</a>
+            <a href="#records">RECORDS</a>
+            <a href="#goals">GOALS</a>
+            <a href="#kilyan">ANIMATION</a>
+        </div>
+    </header>
+    <div class="main" id="home"></div>
+    <div class="career" id="career">
+        <div>
+            <img src="https://kylianmbappe.com/wp-content/uploads/2020/07/EA1.jpg" alt="">
+            <img src="https://assets.goal.com/images/v3/blt6906ca5cb89fb87c/GettyImages-2011418193.jpg?auto=webp&format=pjpg&width=3840&quality=60" alt="">
+        </div>
+        <div >
+            <h1>Career</h1>
+            <h2>Kylian Mbappe</h2>
+            <br>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid aspernatur voluptatem rem, adipisci dolor impedit odio sequi officiis tempora ipsa pariatur quo, animi illum mollitia aperiam quas cum! Provident, rerum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero blanditiis enim consequatur consequuntur obcaecati, ipsam sapiente ex nisi, omnis, ab quo eveniet sit molestias possimus officia inventore recusandae culpa nemo!
+                Distinctio, fuga ab minima illum culpa iusto laudantium. Adipisci aspernatur quis repellendus voluptate quod vero, dolorem asperiores sunt iure voluptatum. Quo aliquam consectetur reprehenderit? Ratione vitae optio ullam porro fuga.
+                Illum deleniti, sequi numquam provident sint molestiae reiciendis esse fuga tempore. Doloremque dicta voluptatibus ducimus exercitationem, sequi iusto ipsam? Nostrum laboriosam sed, natus quia alias quam et. Recusandae, ipsum earum.</p>
+        </div>
+        <div>
+            <img src="https://estaticos-cdn.prensaiberica.es/clip/ca4e3e5f-e72d-4173-9b75-2bdf574a0894_alta-libre-aspect-ratio_default_0.jpg" alt="">
+            <img src="https://inews.co.uk/wp-content/uploads/2024/07/SEI_211249346.jpg?w=760" alt="">
+        </div>
+    </div>
+    <div class="newsTitle">
+        <h1>News</h1>
+    </div>
+    <div class="news" id="news">
+        <div>
+            <img src="https://static.independent.co.uk/2023/03/23/22/AFP_33BW9UQ.jpg" alt="">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt eius ratione doloribus
+                 rerum, ipsa illum cum nemo odit eaque, pariatur harum quam voluptatibus.</p>
+        </div>
+        <div>
+            <img src="https://kylianmbappe.com/wp-content/uploads/2020/07/EA3.jpg" alt="">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit
+            eligendi odit! Harum libero minus laudantium quod, praesentium quaerat?</p>
+        </div>
+        <div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY6iSbWI9Ig5rKFbLoi-CEbeaEEcoyhlpy4A&s" alt="">
+            <p>Lorem ipsum dolor sit amet consectetur adip
+                quaerat consectetur rem vel quasi. Ipsam, quibusdam. Nihil, pariatur.</p>
+        </div>
+    </div>
+    <div class="rc" id="records">
+        <div class="newsTitle">
+            <h1>Records</h1>
+        </div>
+        <h3>2016/2014</h3>
+        <div class="records">
+            <div>
+                <img src="https://kylianmbappe.com/wp-content/uploads/2018/07/coupe-du-monde.png" alt="">
+                <h2>1</h2>
+                <h3>COUPE DU MONDE</h3>
+            </div>
+            <div>
+                <img  src="https://kylianmbappe.com/wp-content/uploads/2022/11/nation-117x300.png" alt="">
+                <h2>1</h2>
+                <h3>UEFA NATIONS LEAGUE</h3>
+            </div>
+            <div>
+                <img src="https://kylianmbappe.com/wp-content/uploads/2018/04/Coupe-de-france-noir.png" alt="">
+                <h2>4</h2>
+                <h3>COUPE DE FRANCE</h3>
+            </div>
+            <div>
+                <img src="https://kylianmbappe.com/wp-content/uploads/2018/02/championnat-france-284x300.png" alt="">
+                <h2>7</h2>
+                <h3>CHAMPIONNATS DE FRANCE</h3>
+            </div>
+            <div>
+                <img src="https://kylianmbappe.com/wp-content/uploads/2022/11/trophee-champions-284x300.png" alt="">
+                <h2>5</h2>
+                <h3>TROPHÉE DES CHAMPIONS</h3>
+            </div>
+            <div>
+                <img src="https://kylianmbappe.com/wp-content/uploads/2018/04/coupe-ligue-noir.png" alt="">
+                <h2>2</h2>
+                <h3>COUPE DE LA LIGUE</h3>
+            </div>
+            <div>
+                <img src="https://kylianmbappe.com/wp-content/uploads/2018/03/gambardella.png" alt="">
+                <h2>1</h2>
+                <h3>COUPE GAMBARDELLA</h3>
+            </div>
+            <div>
+                <img src="https://kylianmbappe.com/wp-content/uploads/2018/08/U19.png" alt="">
+                <h2>1</h2>
+                <h3>UEFA U19</h3>
+            </div>
+        </div>
+    </div>
+    <div id="goals" class="REALMADRIT">
+        <h1>Goals</h1>
+        <div>
+            <img src="https://pbs.twimg.com/media/G3CrM0KWwAAbcyM.jpg" alt="">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/2022_FIFA_World_Cup_France_4%E2%80%931_Australia_-_%288%29.jpg/330px-2022_FIFA_World_Cup_France_4%E2%80%931_Australia_-_%288%29.jpg" alt="">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Kylian_Mbapp%C3%A9_World_Cup_Trophy.jpg/330px-Kylian_Mbapp%C3%A9_World_Cup_Trophy.jpg" alt="">
+        </div>
+            <hr>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Kylian_Mbapp%C3%A9_sig.svg/330px-Kylian_Mbapp%C3%A9_sig.svg.png" alt="">
+        <p>Kylian Mbappé Lottin (born 20 December 1998) is a French professional footballer who plays as a forward for La Liga club Real Madrid and captains the France national team. Widely regarded as one of the best players of his generation, he is known for his dribbling, finishing, and speed.Born in Paris and raised in nearby Bondy, Mbappé began his senior club career in 2015 with Monaco, where he won the Ligue 1 title in the 2016–17 season. In 2017, aged 18, Mbappé signed for Paris Saint-Germain on an eventual permanent transfer worth €180 million, making him the second-most-expensive player and most expensive teenage player of all time.[2] With PSG, he won six Ligue 1 titles and four Coupes de France, including a domestic quadruple in the 2019–20 season, while also leading the club to its first ever UEFA Champions League final in 2020. He is the club's all-time top goalscorer, ranks third in assists, and is the seventh-highest goalscorer in Ligue 1 history. In 2024, after several years of speculation, Mbappé joined Real Madrid on a free transfer. He won the UEFA Super Cup and the FIFA Intercontinental Cup in the first half of his debut season, scoring in both finals. Breaking the record for the most goals scored by a Real Madrid player in their debut season, he also 962).Mbappé finished in third place for the 2023 Ballon d'Or and was runner-up for the 2022 The Best FIFA Men's Player award. He was named to the FIFA FIFPro World11 in 2018, 2019, 2022, 2023 and 2024, the UEFA Team of the Year in 2018 and the UEFA Champions League Squad of the Season in 2016–17, 2019–20, 2020–21 and 2021–22. He was awarded the Golden Boy in 2017, the Kopa Trophy in 2018, and was shortlisted for the Laureus World Sportsman of the Year in 2019 and 2023. Mbappé has been named Ligue 1 Player of the Year a record five times, and has finished as the Ligue 1 top scorer for a record six seasons; in the 2021–22 season, he became the first player to finish as both Ligue 1 top scorer and top assist provider. Mbappé was named as one of the Time's 100 most influential people in the world in 2023 and was listed by Forbes as one of the world's ten highest-paid athletes in 2023 and 2024.Early lifeKylian Mbappé Lottin[3] was born on 20 December 1998[4] in the 19th arrondissement of Paris[5] and was raised in Bondy, Seine-Saint-Denis, in the northeastern suburbs of Paris.[6] His father, Wilfrid Mbappé, is a football coach and is originally from the Cameroonian island of Djébalè [fr],[7] which is home to the Sawa people. His mother and agent, Fayza Lamari, is of Algerian Kabyle origin and is a former handball player.[8][9][10][11] He has a younger brother, Ethan, who plays for Lille.[12][13] Their older adoptive brother, Jirès Kembo Ekoko, is a former professional footballer.[14]As a child, Mbappé went to a private Catholic school in Bondy, where he was considered academically gifted but unruly.[15] At 15, he began taking Spanish lessons, and eventually became fluent in the language.[16] Among Mbappé's idols growing up were Zinedine Zidane,[17] Cristiano Ronaldo,[18] Neymar,[19] Ronaldinho,[20] Lionel Messi,[19] Ronaldo Nazario,[21] Eden Hazard[22] and Thierry Henry.[23][24] As a child, Mbappé received Robinho's AC Milan shirt as a gift from his nanny's family, who were Italians and supporters of the club.[25][26] However, his own favourite team had always been Real Madrid.[27] In May 2024, just days before his transfer to Real Madrid was announced, Mbappé said that he still follows Serie A and AC Milan, and would like to play for the Rossoneri if he is ever to move to Italy in the future.[28]Club careerEarly careerMbappé was coached by his father, Wilfried, when he started his career with AS Bondy. Another of his youth coaches at AS Bondy, Antonio Riccardi, stated,The first time I coached him was when he was six years old. You could tell he was different. Kylian could do much more than the other children. His dribbling was already fantastic and he was much faster than the others. He was the best player I've ever seen in 15 years coaching here. In Paris, there are many talents but I'd never seen a talent like him. He was what we call a 'crack' (the best).[29]</p>
+    </div>
+    <hr>
+    <div id="kilyan">
+        <h1>kylian</h1>
+    </div>
+    <div class="lift">
+        <div class="orbit1">
+            <div class="planet"></div>
+            <div class="orbit2">
+                    <div class="planet1"></div>
+                    <div class="orbit3">
+                        <div class="planet2"></div>
+                        <div class="sun"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="or">
+      <h3>Ruben baloyan</h3>
+      <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">My Instagram</a>
+    </div>
+</body>
+</html>
